@@ -10,49 +10,85 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <meta name="keywords"
+          content="unique login form,leamug login form,boostrap login form,responsive login form,free css html login form,download login form">
+    <meta name="author" content="leamug">
+    <title>Unique Login Form | Bootstrap Templates</title>
+    <link href="css/style.css" rel="stylesheet" id="style">
+    <!-- Bootstrap core Library -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <!-- Font Awesome-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Create.css" />
     <title>Create</title>
 </head>
 <body>
+    <header class="header">
+        <nav class="global-nav">
+            <ul class="global-nav__list">
+                <li class="global-nav__item"><a asp-page="/Index">Home</a></li>
+                <li class="global-nav__item"><a asp-page="/Profile">Profile</a></li>
+                <li class="global-nav__item"><a asp-page="/Mypage">mypage</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="js-hamburger">
+            <span class="hamburger__line hamburger__line--1"></span>
+            <span class="hamburger__line hamburger__line--2"></span>
+            <span class="hamburger__line hamburger__line--3"></span>
+        </div>
+        <div class="black-bg" id="js-black-bg"></div>
+        <script>function toggleNav() {
+                var body = document.body;
+                var hamburger = document.getElementById('js-hamburger');
+                var blackBg = document.getElementById('js-black-bg');
 
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="User.Id" class="control-label"></label>
-                <input asp-for="User.Id" class="form-control" />
-                <span asp-validation-for="User.Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.Password" class="control-label"></label>
-                <input asp-for="User.Password" class="form-control" />
-                <span asp-validation-for="User.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.Name" class="control-label"></label>
-                <input asp-for="User.Name" class="form-control" />
-                <span asp-validation-for="User.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.Age" class="control-label"></label>
-                <input asp-for="User.Age" class="form-control" />
-                <span asp-validation-for="User.Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                hamburger.addEventListener('click', function () {
+                    body.classList.toggle('nav-open');
+                });
+                blackBg.addEventListener('click', function () {
+                    body.classList.remove('nav-open');
+                });
+            }
+            toggleNav();</script>
+    </header>
+<div class="form-box">
+    <br />
+    <form method="post" class="form-box-inside">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="User.Id" class="control-label">ユーザーID</label><br />
+            <input asp-for="User.Id" class="form-control" />
+            <span asp-validation-for="User.Id" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="User.Password" class="control-label">パスワード</label><br />
+            <input asp-for="User.Password" class="form-control" />
+            <span asp-validation-for="User.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="User.Name" class="control-label">ニックネーム</label><br />
+            <input asp-for="User.Name" class="form-control" />
+            <span asp-validation-for="User.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="User.Age" class="control-label">年齢</label><br />
+            <input asp-for="User.Age" class="form-control" />
+            <span asp-validation-for="User.Age" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <br /><input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+    <div>
+        <br /><br /><a asp-page="../Login">Back</a><br />
     </div>
 </div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
 </body>
 </html>
