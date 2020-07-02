@@ -9,6 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace wordNote
 {
@@ -27,7 +31,10 @@ namespace wordNote
             services.AddRazorPages();
 
             services.AddDbContext<RazorPagesWordContext>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("RazorPagesWordContext")));
+                options.UseMySql(Configuration.GetConnectionString("RazorPagesWordContext")));
+
+            services.AddDbContext<RazorPagesUserContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("RazorPagesUserContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,10 +50,6 @@ namespace wordNote
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseAuthorization();
@@ -55,6 +58,7 @@ namespace wordNote
             {
                 endpoints.MapRazorPages();
             });
+            app.UseStaticFiles();
         }
     }
 }
