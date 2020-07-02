@@ -34,7 +34,7 @@ namespace wordNote
                 options.UseMySql(Configuration.GetConnectionString("RazorPagesWordContext")));
 
             services.AddDbContext<RazorPagesUserContext>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("RazorPagesUserContext")));
+                    options.UseMySql(Configuration.GetConnectionString("RazorPagesUserContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
