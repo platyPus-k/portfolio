@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - wordNote</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/Main.css" />
 </head>
@@ -14,7 +15,9 @@
             <ul class="global-nav__list">
                 <li class="global-nav__item"><a asp-page="/Index">Home</a></li>
                 <li class="global-nav__item"><a asp-page="/Profile">Profile</a></li>
-                <li class="global-nav__item"><a asp-page="/Mypage">mypage</a></li>
+                <li class="global-nav__item"><a asp-page="/Words/Index">mypage</a></li>
+                <li class="global-nav__item"><a asp-page="/Account/Login">Login</a></li>
+                <li class="global-nav__item"><a asp-page="/Account/Logout">Logout</a></li>
             </ul>
         </nav>
         <div class="hamburger" id="js-hamburger">
@@ -23,19 +26,19 @@
             <span class="hamburger__line hamburger__line--3"></span>
         </div>
         <div class="black-bg" id="js-black-bg"></div>
-       <script>function toggleNav() {
-               var body = document.body;
-               var hamburger = document.getElementById('js-hamburger');
-               var blackBg = document.getElementById('js-black-bg');
+        <script>function toggleNav() {
+                var body = document.body;
+                var hamburger = document.getElementById('js-hamburger');
+                var blackBg = document.getElementById('js-black-bg');
 
-               hamburger.addEventListener('click', function () {
-                   body.classList.toggle('nav-open');
-               });
-               blackBg.addEventListener('click', function () {
-                   body.classList.remove('nav-open');
-               });
-           }
-           toggleNav();</script>
+                hamburger.addEventListener('click', function () {
+                    body.classList.toggle('nav-open');
+                });
+                blackBg.addEventListener('click', function () {
+                    body.classList.remove('nav-open');
+                });
+            }
+            toggleNav();</script>
     </header>
 
     <div class="container">
@@ -43,9 +46,6 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer>
-            &copy; 2020 wordNote
-    </footer>
+<footer></footer>
 </body>
 </html>

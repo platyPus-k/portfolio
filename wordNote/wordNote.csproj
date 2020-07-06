@@ -10,15 +10,14 @@
     <Folder Include="wwwroot\css\Image\" />
     <Folder Include="wwwroot\css\font\" />
     <Folder Include="Pages\Users\" />
+    <Folder Include="Pages\Account\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
     <PackageReference Include="MySql.Data" Version="8.0.20" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
     <PackageReference Include="jQuery" Version="3.5.1" />
@@ -27,5 +26,6 @@
   <ItemGroup>
     <Content Remove="Pages\Create.cshtml" />
     <Content Remove="Pages\Create.cshtml" />
+    <Content Remove="Pages\Logout.cshtml" />
   </ItemGroup>
 </Project>

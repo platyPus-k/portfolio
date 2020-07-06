@@ -1,4 +1,38 @@
 ﻿@page
-@model wordNote.Pages.ProfileModel
+@model ProfileModel
 @{
+    ViewData["Title"] = "Profile";
 }
+
+<head>
+    <link rel="stylesheet" href="~/css/Profile.css" />
+</head>
+<body>
+<br /><br /><br/><br />
+<h1 class="main-line">Profile</h1>
+<img src="css/Image/Platypus.jpeg" alt="プロフィール画像">
+<br/>
+<div class="title-line">
+    <h2>自己紹介</h2>
+</div>
+<div class="p-line">
+    <p>
+        HN：platypus
+        出身：長野県<br>
+        趣味：読書、考え事、運動<br>
+        職業：プログラマー志望<br>
+    </p>
+</div>
+<div class="title-line">
+    <h2>ひとこと</h2>
+</div>
+<div class="p-line">
+    <p>
+        初めてのポートフォリオサイトです<br>
+        今生はエンジニアとして生涯を終えるつもりです<br>
+        器用な事は行えませんが、努力はできます<br>
+        よろしくお願い致します。
+    </p>
+</div>
+
+</body>

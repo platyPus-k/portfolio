@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 
 namespace wordNote
 {
@@ -35,6 +36,16 @@ namespace wordNote
 
             services.AddDbContext<RazorPagesUserContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("RazorPagesUserContext")));
+
+            services.Configure<CookiePolicyOptions>(options => {
+                options.CheckConsentNeeded = context => !context.User.Identity.IsAuthenticated;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.Secure = CookieSecurePolicy.Always;
+                options.HttpOnly = HttpOnlyPolicy.Always;
+            });
+            services
+               .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,9 +58,14 @@ namespace wordNote
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+ 
+            app.UseCookiePolicy();
+            app.UseAuthentication();
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -58,7 +74,6 @@ namespace wordNote
             {
                 endpoints.MapRazorPages();
             });
-            app.UseStaticFiles();
         }
     }
 }

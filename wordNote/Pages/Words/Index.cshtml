@@ -1,101 +1,60 @@
 @page
 @model wordNote.Pages.Words.IndexModel
-
 @{
-    Layout = null;
 }
-
-<!DOCTYPE html>
-
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/Main.css" />
-    <title>Word</title>
-</head>
 <body>
-    <header class="header">
-        <nav class="global-nav">
-            <ul class="global-nav__list">
-                <li class="global-nav__item"><a asp-page="/Index">Home</a></li>
-                <li class="global-nav__item"><a asp-page="/Profile">Profile</a></li>
-                <li class="global-nav__item"><a asp-page="/Mypage">mypage</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger" id="js-hamburger">
-            <span class="hamburger__line hamburger__line--1"></span>
-            <span class="hamburger__line hamburger__line--2"></span>
-            <span class="hamburger__line hamburger__line--3"></span>
-        </div>
-        <div class="black-bg" id="js-black-bg"></div>
-        <script>
-              function toggleNav() {
-               var body = document.body;
-               var hamburger = document.getElementById('js-hamburger');
-               var blackBg = document.getElementById('js-black-bg');
-
-               hamburger.addEventListener('click', function () {
-                   body.classList.toggle('nav-open');
-               });
-               blackBg.addEventListener('click', function () {
-                   body.classList.remove('nav-open');
-               });
-           }
-           toggleNav();</script>
-    </header>
-    <p>
-        <a asp-page="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Word[0].Person)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Word[0].Line)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Word[0].Profession)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Word[0].Span)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Word[0].Submitter)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Word)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Word[0].Person)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Word[0].Line)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Word[0].Profession)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Word[0].Span)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Word[0].Submitter)
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Person)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Line)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profession)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Span)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Submitter)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Word)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Person)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Line)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Profession)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Span)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Submitter)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 </body>
 </html>
