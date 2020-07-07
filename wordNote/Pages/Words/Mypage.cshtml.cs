@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,11 +10,12 @@ using wordNote.Models;
 
 namespace wordNote.Pages.Words
 {
-    public class IndexModel : PageModel
+    [Authorize]
+    public class MypageModel : PageModel
     {
         private readonly RazorPagesWordContext _context;
 
-        public IndexModel(RazorPagesWordContext context)
+        public MypageModel(RazorPagesWordContext context)
         {
             _context = context;
         }
@@ -26,4 +27,4 @@ namespace wordNote.Pages.Words
             Word = await _context.Word.ToListAsync();
         }
     }
-}  
+}

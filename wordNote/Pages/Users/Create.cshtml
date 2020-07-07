@@ -1,60 +1,11 @@
 @page
 @model wordNote.Pages.Users.CreateModel
-
 @{
-    Layout = null;
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <meta name="keywords"
-          content="unique login form,leamug login form,boostrap login form,responsive login form,free css html login form,download login form">
-    <meta name="author" content="leamug">
-    <title>Unique Login Form | Bootstrap Templates</title>
-    <link href="css/style.css" rel="stylesheet" id="style">
-    <!-- Bootstrap core Library -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-    <!-- Font Awesome-->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/Create.css" />
-    <title>Create</title>
-</head>
 <body>
-    <header class="header">
-        <nav class="global-nav">
-            <ul class="global-nav__list">
-                <li class="global-nav__item"><a asp-page="/Index">Home</a></li>
-                <li class="global-nav__item"><a asp-page="/Profile">Profile</a></li>
-                <li class="global-nav__item"><a asp-page="/Mypage">mypage</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger" id="js-hamburger">
-            <span class="hamburger__line hamburger__line--1"></span>
-            <span class="hamburger__line hamburger__line--2"></span>
-            <span class="hamburger__line hamburger__line--3"></span>
-        </div>
-        <div class="black-bg" id="js-black-bg"></div>
-        <script>function toggleNav() {
-                var body = document.body;
-                var hamburger = document.getElementById('js-hamburger');
-                var blackBg = document.getElementById('js-black-bg');
 
-                hamburger.addEventListener('click', function () {
-                    body.classList.toggle('nav-open');
-                });
-                blackBg.addEventListener('click', function () {
-                    body.classList.remove('nav-open');
-                });
-            }
-            toggleNav();</script>
-    </header>
 <div class="form-box">
     <br />
     <form method="post" class="form-box-inside">
