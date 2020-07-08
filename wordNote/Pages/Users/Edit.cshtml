@@ -11,7 +11,7 @@
     <title>Edit</title>
 </head>
 <body>
-
+<br/>
 <h4>User</h4>
 <hr />
 <div class="row">
@@ -20,17 +20,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="User.Id" />
             <div class="form-group">
-                <label asp-for="User.Password" class="control-label"></label>
-                <input asp-for="User.Password" class="form-control" />
+                <label asp-for="User.Id" class="control-label">ユーザーID</label>
+                <input asp-for="User.Id" class="form-control" />
+                <span asp-validation-for="User.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Password" class="control-label">パスワード</label>
+                <input asp-for="User.Password" type="password" class="form-control" />
                 <span asp-validation-for="User.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Name" class="control-label"></label>
+                <label asp-for="User.Name" class="control-label">ニックネーム</label>
                 <input asp-for="User.Name" class="form-control" />
                 <span asp-validation-for="User.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Age" class="control-label"></label>
+                <label asp-for="User.Age" class="control-label">年齢</label>
                 <input asp-for="User.Age" class="form-control" />
                 <span asp-validation-for="User.Age" class="text-danger"></span>
             </div>
@@ -40,9 +45,28 @@
         </form>
     </div>
 </div>
+    <style>
+        .container {
+            text-align: center;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+        }
+
+        .main {
+            text-align: center;
+            display: -webkit-flex;
+            display: flex;
+        }
+
+        .row {
+            margin:auto;
+            width: 300%;
+        }
+    </style>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <button onclick="location.href='javascript:history.back()'" class="btn btn-primary">Back</button>
 </div>
 </body>
 </html>

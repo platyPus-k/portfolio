@@ -15,7 +15,7 @@ namespace wordNote.Pages.Words
     public class MypageModel : PageModel
     {
         private readonly RazorPagesWordContext _context;
-        public string UserName { get; private set; }
+        public  string UserName { get; private set; }
 
         public MypageModel(RazorPagesWordContext context)
         {

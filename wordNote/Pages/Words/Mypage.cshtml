@@ -48,9 +48,6 @@
                                 @Html.DisplayFor(modelItem => item.Span)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Submitter)
-                            </td>
-                            <td>
                                 <button class="btn btn-primary" asp-route-id="@item.Id" onclick="location.href='./Edit?id='+@item.Id">Edit</button> |
                                 <button class="btn btn-primary" asp-route-id="@item.Id" onclick="location.href='./Delete?id='+@item.Id">Delete</button>
                             </td>
@@ -59,9 +56,8 @@
                 }
             </tbody>
         </table>
-        <p>
+        <p>           
             <button onclick="location.href='./Create'" class="btn btn-primary">Create</button>
-            <button onclick="location.href='../'" class="btn btn-primary">Back</button>
         </p>
     </body>
     </html>
