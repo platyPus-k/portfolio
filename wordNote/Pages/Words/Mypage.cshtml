@@ -4,26 +4,24 @@
 }
     <html>
     <body>
-        <p>
-            <a asp-page="Create">Create New</a>
-        </p>
+        <br /><br /><br />
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Word[0].Person)
+                        人物
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Word[0].Line)
+                        言葉
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Word[0].Profession)
+                        職業
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Word[0].Span)
+                        年号
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Word[0].Submitter)
+                        ユーザー
                     </th>
                     <th></th>
                 </tr>
@@ -31,30 +29,36 @@
             <tbody>
                 @foreach (var item in Model.Word)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Person)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Line)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Profession)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Span)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Submitter)
-                        </td>
-                        <td>
-                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
+                    @if (item.Submitter == Model.UserName)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Person)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Line)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Profession)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Span)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Submitter)
+                            </td>
+                            <td>
+                                <button class="btn btn-primary"><a asp-page="./Edit" asp-route-id="@item.Id">Edit</a></button> |
+                                <button class="btn btn-primary"><a asp-page="./Details" asp-route-id="@item.Id">Details</a></button> |
+                                <button class="btn btn-primary"><a asp-page="./Delete" asp-route-id="@item.Id">Delete</a></button>
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>
+    <p>
+        <a asp-page="Create">Create</a>
+    </p>
     </body>
     </html>

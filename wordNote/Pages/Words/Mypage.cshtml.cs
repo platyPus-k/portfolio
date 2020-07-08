@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using wordNote.Models;
+using Microsoft.AspNet.Identity;
 
 namespace wordNote.Pages.Words
 {
@@ -14,6 +15,7 @@ namespace wordNote.Pages.Words
     public class MypageModel : PageModel
     {
         private readonly RazorPagesWordContext _context;
+        public string UserName { get; private set; }
 
         public MypageModel(RazorPagesWordContext context)
         {
@@ -24,6 +26,7 @@ namespace wordNote.Pages.Words
 
         public async Task OnGetAsync()
         {
+            UserName = User.Identity.GetUserName();
             Word = await _context.Word.ToListAsync();
         }
     }

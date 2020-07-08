@@ -48,12 +48,13 @@
             @Html.DisplayFor(model => model.Word.Submitter)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Word.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <button onclick="location.href='./Index'" class="btn btn-primary">Back</button>
+        <input type="hidden" asp-for="Word.Submitter" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
     </form>
+    <button onclick="location.href='./Index'" class="btn btn-primary">Back</button>
 </div>
 </body>
 </html>

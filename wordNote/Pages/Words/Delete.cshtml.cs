@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -41,6 +42,9 @@ namespace wordNote.Pages.Words
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
+            string name = User.Identity.GetUserName();
+            if (Word.Submitter != name) return Page();
+
             if (id == null)
             {
                 return NotFound();
