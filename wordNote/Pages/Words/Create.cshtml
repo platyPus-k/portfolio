@@ -9,30 +9,30 @@
     <title>Create</title>
 </head>
 <body>
-
-<h4>Word</h4>
+<br/>
+<h4>NewWord</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Word.Person" class="control-label"></label>
+                <label asp-for="Word.Person" class="control-label">人物</label>
                 <input asp-for="Word.Person" class="form-control" />
                 <span asp-validation-for="Word.Person" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Word.Line" class="control-label"></label>
+                <label asp-for="Word.Line" class="control-label">言葉</label>
                 <input asp-for="Word.Line" class="form-control" />
                 <span asp-validation-for="Word.Line" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Word.Profession" class="control-label"></label>
+                <label asp-for="Word.Profession" class="control-label">職業</label>
                 <input asp-for="Word.Profession" class="form-control" />
                 <span asp-validation-for="Word.Profession" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Word.Span" class="control-label"></label>
+                <label asp-for="Word.Span" class="control-label">年号</label>
                 <input asp-for="Word.Span" class="form-control" />
                 <span asp-validation-for="Word.Span" class="text-danger"></span>
             </div>
@@ -44,7 +44,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <button onclick="location.href='./Index'" class="btn btn-primary">Back</button>
 </div>
 </body>
 </html>
