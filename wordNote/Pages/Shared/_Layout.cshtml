@@ -8,44 +8,53 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/Main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="global-nav">
-            <ul class="global-nav__list">
-                <li class="global-nav__item"><a asp-page="/Index">Home</a></li>
-                <li class="global-nav__item"><a asp-page="/Profile">Profile</a></li>
-                <li class="global-nav__item"><a asp-page="/Words/Index">mypage</a></li>
-                <li class="global-nav__item"><a asp-page="/Account/Login">Login</a></li>
-                <li class="global-nav__item"><a asp-page="/Account/Logout">Logout</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger" id="js-hamburger">
-            <span class="hamburger__line hamburger__line--1"></span>
-            <span class="hamburger__line hamburger__line--2"></span>
-            <span class="hamburger__line hamburger__line--3"></span>
+    <div id="wrapper">
+        <header class="header">
+            <nav class="global-nav">
+                <ul class="global-nav__list">
+                    <li class="global-nav__item"><a asp-page="/Index">Home</a></li>
+                    <li class="global-nav__item"><a asp-page="/Profile">Profile</a></li>
+                    <li class="global-nav__item"><a asp-page="/Words/Index">mypage</a></li>
+                    <li class="global-nav__item"><a asp-page="/Account/Login">Login</a></li>
+                    <li class="global-nav__item"><a asp-page="/Account/Logout">Logout</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="js-hamburger">
+                <span class="hamburger__line hamburger__line--1"></span>
+                <span class="hamburger__line hamburger__line--2"></span>
+                <span class="hamburger__line hamburger__line--3"></span>
+            </div>
+            <div class="black-bg" id="js-black-bg"></div>
+            <script>function toggleNav() {
+                    var body = document.body;
+                    var hamburger = document.getElementById('js-hamburger');
+                    var blackBg = document.getElementById('js-black-bg');
+
+                    hamburger.addEventListener('click', function () {
+                        body.classList.toggle('nav-open');
+                    });
+                    blackBg.addEventListener('click', function () {
+                        body.classList.remove('nav-open');
+                    });
+                }
+                toggleNav();</script>
+        </header>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-        <div class="black-bg" id="js-black-bg"></div>
-        <script>function toggleNav() {
-                var body = document.body;
-                var hamburger = document.getElementById('js-hamburger');
-                var blackBg = document.getElementById('js-black-bg');
-
-                hamburger.addEventListener('click', function () {
-                    body.classList.toggle('nav-open');
-                });
-                blackBg.addEventListener('click', function () {
-                    body.classList.remove('nav-open');
-                });
-            }
-            toggleNav();</script>
-    </header>
-
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-<footer></footer>
+       
+        <footer>
+            <p>(c)copy right</p>
+            <div id="page_top">
+                <a href="#"></a>
+            </div>
+        </footer>
+        </div>
 </body>
 </html>

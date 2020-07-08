@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace wordNote.Pages
 {
-    [Authorize]
     public class ProfileModel : PageModel
     {
         public string Message { get; set; }

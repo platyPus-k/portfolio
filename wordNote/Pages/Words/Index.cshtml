@@ -4,23 +4,24 @@
 }
 <html>
 <body>
+    <br/><br /><br />
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Word[0].Person)
+                人物
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Word[0].Line)
+                言葉
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Word[0].Profession)
+                職業
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Word[0].Span)
+                年号
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Word[0].Submitter)
+                ユーザー
             </th>
             <th></th>
         </tr>
@@ -45,16 +46,16 @@
                     @Html.DisplayFor(modelItem => item.Submitter)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                    <button class="btn btn-primary"><a asp-page="./Edit" asp-route-id="@item.Id">Edit</a></button> |
+                    <button class="btn btn-primary"><a asp-page="./Details" asp-route-id="@item.Id">Details</a></button> |
+                    <button class="btn btn-primary"><a asp-page="./Delete" asp-route-id="@item.Id">Delete</a></button>
+</td>
             </tr>
         }
     </tbody>
 </table>
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="./Create">Create New</a>
 </p>
 </body>
 </html>

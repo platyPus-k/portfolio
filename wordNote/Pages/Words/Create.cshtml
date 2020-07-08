@@ -1,10 +1,7 @@
 @page
 @model wordNote.Pages.Words.CreateModel
-
 @{
 }
-
-<!DOCTYPE html>
 
 <html>
 <head>
@@ -40,23 +37,14 @@
                 <span asp-validation-for="Word.Span" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Word.Submitter" class="control-label"></label>
-                <input asp-for="Word.Submitter" class="form-control" />
-                <span asp-validation-for="Word.Submitter" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
-    </div>
+</div>
 </div>
 
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
 </body>
 </html>

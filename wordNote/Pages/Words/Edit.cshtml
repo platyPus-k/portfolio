@@ -40,11 +40,7 @@
                 <input asp-for="Word.Span" class="form-control" />
                 <span asp-validation-for="Word.Span" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Word.Submitter" class="control-label"></label>
-                <input asp-for="Word.Submitter" class="form-control" />
-                <span asp-validation-for="Word.Submitter" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Word.Submitter" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -53,11 +49,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <button onclick="location.href='./Index'" class="btn btn-primary">Back</button>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
 </body>
 </html>

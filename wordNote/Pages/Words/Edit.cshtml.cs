@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -48,7 +49,8 @@ namespace wordNote.Pages.Words
             {
                 return Page();
             }
-
+            string name = User.Identity.GetUserName();
+            if (Word.Submitter != name) return Page();
             _context.Attach(Word).State = EntityState.Modified;
 
             try

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -36,10 +38,14 @@ namespace wordNote.Pages.Words
             {
                 return Page();
             }
-
+            if (User.Identity.IsAuthenticated)
+            {
+                // GetUserName() によりユーザ名を取得
+                string name = User.Identity.GetUserName();
+                Word.Submitter = name;
+            }
             _context.Word.Add(Word);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }
