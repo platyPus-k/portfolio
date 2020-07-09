@@ -22,8 +22,11 @@ namespace wordNote.Pages.Words
             _context = context;
         }
 
+        public string UserName { get; private set; }
+
         public IActionResult OnGet()
         {
+            UserName = User.Identity.GetUserName();
             return Page();
         }
 

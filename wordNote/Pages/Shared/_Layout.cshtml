@@ -8,11 +8,13 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/Main.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 </head>
 <body>
     <div id="wrapper">
         <header class="header">
+            <p class="UserName">
+                Welcome @ViewData["UserName"]
+            </p>
             <nav class="global-nav">
                 <ul class="global-nav__list">
                     <li class="global-nav__item"><a asp-page="/Index">Home</a></li>
@@ -48,13 +50,9 @@
                 @RenderBody()
             </main>
         </div>
-       
-        <footer>
-            <p>(c)copy right</p>
-            <div id="page_top">
-                <a href="#"></a>
-            </div>
-        </footer>
-        </div>
+     </div>
+    <footer>
+        <p>(c)copy right</p>
+    </footer>
 </body>
 </html>

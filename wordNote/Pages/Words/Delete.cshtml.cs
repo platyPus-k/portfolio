@@ -24,18 +24,21 @@ namespace wordNote.Pages.Words
         [BindProperty]
         public Word Word { get; set; }
 
+        public string UserName { get; private set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            UserName = User.Identity.GetUserName();
             if (id == null)
             {
-                return NotFound();
+                return LocalRedirect(Url.Content("~/Words/Mypage"));
             }
 
             Word = await _context.Word.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Word == null)
             {
-                return NotFound();
+                return LocalRedirect(Url.Content("~/Words/Mypage"));
             }
             return Page();
         }
@@ -47,7 +50,7 @@ namespace wordNote.Pages.Words
 
             if (id == null)
             {
-                return NotFound();
+                return Page();
             }
 
             Word = await _context.Word.FindAsync(id);
@@ -58,7 +61,7 @@ namespace wordNote.Pages.Words
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return LocalRedirect(Url.Content("~/Words/Mypage"));
         }
     }
 }

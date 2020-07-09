@@ -10,24 +10,24 @@
         <form method="post" class="form-box-inside">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="User.Id" class="control-label">ユーザーID</label><br />
-                <input asp-for="User.Id" class="form-control" />
-                <span asp-validation-for="User.Id" class="text-danger"></span>
+                <label asp-for="user.Id" class="control-label">ユーザーID</label><br />
+                <input asp-for="user.Id" class="form-control" />
+                <span asp-validation-for="user.Id" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Password" class="control-label">パスワード</label><br />
-                <input asp-for="User.Password" class="form-control" />
-                <span asp-validation-for="User.Password" class="text-danger"></span>
+                <label asp-for="user.Password" class="control-label">パスワード</label><br />
+                <input asp-for="user.Password" class="form-control" />
+                <span asp-validation-for="user.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Name" class="control-label">ニックネーム</label><br />
-                <input asp-for="User.Name" class="form-control" />
-                <span asp-validation-for="User.Name" class="text-danger"></span>
+                <label asp-for="user.Name" class="control-label">ニックネーム</label><br />
+                <input asp-for="user.Name" class="form-control" />
+                <span asp-validation-for="user.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Age" class="control-label">年齢</label><br />
-                <input asp-for="User.Age" class="form-control" />
-                <span asp-validation-for="User.Age" class="text-danger"></span>
+                <label asp-for="user.Age" class="control-label">年齢</label><br />
+                <input asp-for="user.Age" class="form-control" />
+                <span asp-validation-for="user.Age" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <br /><input type="submit" value="Create" class="btn btn-primary" />

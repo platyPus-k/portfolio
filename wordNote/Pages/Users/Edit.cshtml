@@ -1,6 +1,7 @@
 @page
 @model wordNote.Pages.Users.EditModel
 @{
+    ViewData["UserName"] = Model.UserName;
 }
 
 <!DOCTYPE html>
@@ -12,32 +13,32 @@
 </head>
 <body>
 <br/>
-<h4>User</h4>
+<h4>@ViewData["UserName"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="User.Id" />
+            <input type="hidden" asp-for="user.Id" />
             <div class="form-group">
-                <label asp-for="User.Id" class="control-label">ユーザーID</label>
-                <input asp-for="User.Id" class="form-control" />
-                <span asp-validation-for="User.Id" class="text-danger"></span>
+                <label asp-for="user.Id" class="control-label">ユーザーID</label>
+                <input asp-for="user.Id" class="form-control" />
+                <span asp-validation-for="user.Id" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Password" class="control-label">パスワード</label>
-                <input asp-for="User.Password" type="password" class="form-control" />
-                <span asp-validation-for="User.Password" class="text-danger"></span>
+                <label asp-for="user.Password" class="control-label">パスワード</label>
+                <input asp-for="user.Password" type="password" class="form-control" />
+                <span asp-validation-for="user.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Name" class="control-label">ニックネーム</label>
-                <input asp-for="User.Name" class="form-control" />
-                <span asp-validation-for="User.Name" class="text-danger"></span>
+                <label asp-for="user.Name" class="control-label">ニックネーム</label>
+                <input asp-for="user.Name" class="form-control" />
+                <span asp-validation-for="user.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Age" class="control-label">年齢</label>
-                <input asp-for="User.Age" class="form-control" />
-                <span asp-validation-for="User.Age" class="text-danger"></span>
+                <label asp-for="user.Age" class="control-label">年齢</label>
+                <input asp-for="user.Age" class="form-control" />
+                <span asp-validation-for="user.Age" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -64,7 +65,6 @@
             width: 300%;
         }
     </style>
-
 <div>
     <button onclick="location.href='javascript:history.back()'" class="btn btn-primary">Back</button>
 </div>

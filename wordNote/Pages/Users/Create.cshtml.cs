@@ -20,11 +20,16 @@ namespace wordNote.Pages.Users
 
         public IActionResult OnGet()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return LocalRedirect(Url.Content("~/"));
+            }
+              
             return Page();
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public User user { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -35,10 +40,10 @@ namespace wordNote.Pages.Users
                 return Page();
             }
 
-            _context.User.Add(User);
+            _context.User.Add(user);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return LocalRedirect(Url.Content("~/Account/Login"));
         }
     }
 }

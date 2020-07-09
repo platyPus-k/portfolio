@@ -1,6 +1,7 @@
 ﻿@page
 @model wordNote.Pages.Words.MypageModel
 @{
+    ViewData["UserName"] = Model.UserName;
 }
 <html>
 <head>
@@ -22,9 +23,6 @@
                     </th>
                     <th>
                         年号
-                    </th>
-                    <th>
-                        ユーザー
                     </th>
                     <th></th>
                 </tr>

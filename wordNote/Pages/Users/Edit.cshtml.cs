@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,21 +21,31 @@ namespace wordNote.Pages.Users
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public User user { get; set; }
+
+        public string UserName { get; private set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
+            UserName = User.Identity.GetUserName();
+
             if (id == null)
             {
-                return NotFound();
+                return LocalRedirect(Url.Content("~/"));
             }
 
-            User = await _context.User.FirstOrDefaultAsync(m => m.Id == id);
+            user = await _context.User.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (User == null)
+            if (user == null)
             {
-                return NotFound();
+                return LocalRedirect(Url.Content("~/"));
             }
+
+            if (UserName != user.Id)
+            {
+                return LocalRedirect(Url.Content("~/"));
+            }
+
             return Page();
         }
 
@@ -47,7 +58,7 @@ namespace wordNote.Pages.Users
                 return Page();
             }
 
-            _context.Attach(User).State = EntityState.Modified;
+            _context.Attach(user).State = EntityState.Modified;
 
             try
             {
@@ -55,9 +66,9 @@ namespace wordNote.Pages.Users
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(User.Id))
+                if (!UserExists(user.Id))
                 {
-                    return NotFound();
+                    return Page();
                 }
                 else
                 {
@@ -65,7 +76,7 @@ namespace wordNote.Pages.Users
                 }
             }
 
-            return RedirectToPage("./Index");
+            return LocalRedirect(Url.Content("~/Words/Mypage"));
         }
 
         private bool UserExists(string id)
