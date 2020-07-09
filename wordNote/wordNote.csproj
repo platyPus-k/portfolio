@@ -28,6 +28,5 @@
     <Content Remove="Pages\Create.cshtml" />
     <Content Remove="Pages\Create.cshtml" />
     <Content Remove="Pages\Logout.cshtml" />
-    <Content Remove="Pages\Users\Delete.cshtml" />
   </ItemGroup>
 </Project>
