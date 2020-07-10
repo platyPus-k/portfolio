@@ -7,55 +7,119 @@
 <head>
     <link rel="stylesheet" href="~/css/Word.css" />
 </head>
-    <body>
-        <br /><br /><br />
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        人物
-                    </th>
-                    <th>
-                        言葉
-                    </th>
-                    <th>
-                        職業
-                    </th>
-                    <th>
-                        年号
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Word)
+<body>
+    <br /><br />
+    <ul class="dropdwn">
+        <li>
+            <img src="../css/Image/icon.png" width="30px" height="30px">
+            <ul class="dropdwn_menu">
+                <li><a href="../Users/Edit?id=@ViewData["UserName"]">Edit</a></li>
+                <li><a href="../Users/Delete?id=@ViewData["UserName"]">Delete</a></li>
+            </ul>
+        </li>
+    </ul>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    人物
+                </th>
+                <th>
+                    言葉
+                </th>
+                <th>
+                    職業
+                </th>
+                <th>
+                    年号
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Word)
+            {
+                @if (item.Submitter == Model.UserName)
                 {
-                    @if (item.Submitter == Model.UserName)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Person)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Line)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Profession)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Span)
-                            </td>
-                            <td>
-                                <button class="btn btn-primary" asp-route-id="@item.Id" onclick="location.href='./Edit?id='+@item.Id">Edit</button> |
-                                <button class="btn btn-primary" asp-route-id="@item.Id" onclick="location.href='./Delete?id='+@item.Id">Delete</button>
-                            </td>
-                        </tr>
-                    }
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Person)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Line)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Profession)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Span)
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" asp-route-id="@item.Id" onclick="location.href='./Edit?id='+@item.Id">Edit</button> |
+                            <button class="btn btn-primary" asp-route-id="@item.Id" onclick="location.href='./Delete?id='+@item.Id">Delete</button>
+                        </td>
+                    </tr>
                 }
-            </tbody>
-        </table>
-        <p>           
-            <button onclick="location.href='./Create'" class="btn btn-primary">Create</button>
-        </p>
-    </body>
+            }
+        </tbody>
+    </table>
+    <div>
+        <button onclick="location.href='./Create'" class="btn btn-primary">Create</button>
+    </div>
+    <style>
+
+
+        .dropdwn {
+            max-width: 115px;
+            height: 30px;
+        }
+
+
+            .dropdwn li {
+                max-width: calc(1200px/5);
+                position: relative;
+                padding: 4px;
+                display: block;
+                cursor: pointer;
+            }
+
+        .dropdwn_menu {
+            width: 100%;
+            display: none;
+            position: absolute;
+            margin-left: -5px;
+            padding: 0;
+            background: rgb(0,0,0);
+        }
+
+            .dropdwn_menu li {
+                width: 100%;
+            }
+
+                .dropdwn_menu li a {
+                    font-family: 'Monad','sans-serif';
+                    text-align: center;
+                    text-decoration: none;
+                    padding: 5px 0;
+                    margin: -5px 5px -5px -5px;
+                    display: block;
+                    color: white;
+                }
+
+                    .dropdwn_menu li a:hover {
+                        padding: 5px 0;
+                        margin: -5px 5px -5px -5px;
+                        background: rgba(255,255,255,0.5);
+                        color: black;
+                    }
+    </style>
+    <script>$(function () {
+            $('.dropdwn li').hover(function () {
+                $("ul:not(:animated)", this).slideDown();
+            }, function () {
+                $("ul.dropdwn_menu", this).slideUp();
+            });
+        });</script>
+</body>
     </html>
