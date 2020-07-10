@@ -1,0 +1,183 @@
+﻿@font-face {
+    font-family: 'Monad';
+    src: url(font/MonadRegular.woff);
+}
+@font-face {
+    font-family: 'myfont';
+    src: url(font/timemachine-wa.ttf);
+}
+
+html {
+    height: 100%;
+}
+body {
+    background-image: none;
+    font-family: "myfont";
+    height: 100%; /* 縦の高さを100% */
+    width: 100%; /* 横の幅を100% */
+}
+
+h1 {
+    font-family: 'Monad','sans-serif';
+    font-size: 650%;
+    color: rgba(0,0,0,1);
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    width: 140px;
+    height: 45px;
+    font-family: 'myfont', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    margin:10%;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+    .button:hover {
+        background-color: black;
+        box-shadow: 0px 15px 20px gray;
+        color: #fff;
+        transform: translateY(-7px);
+    }
+
+
+
+.header {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,.16);
+}
+
+.global-nav {
+    position: fixed;
+    right: -320px; /* これで隠れる */
+    top: 0;
+    width: 300px; /* スマホに収まるくらい */
+    height: 100vh;
+    padding-top: 40px;
+    background-color: #fff;
+    transition: all .6s;
+    z-index: 200;
+    overflow-y: auto; /* メニューが多くなったらスクロールできるように */
+}
+
+.hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
+    height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
+    cursor: pointer;
+    z-index: 300;
+}
+
+.global-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.global-nav__item {
+    text-align: center;
+    padding: 0 14px;
+}
+    .global-nav__item a {
+        font-family: 'Monad','sans-serif';
+        display: block;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        text-decoration: none;
+        color: #111;
+    }
+
+        .global-nav__item a:hover {
+            background-color: #eee;
+        }
+
+.hamburger__line {
+    position: absolute;
+    left: 11px;
+    width: 18px;
+    height: 1px;
+    background-color: #111;
+    transition: all .6s;
+}
+
+.hamburger__line--1 {
+    top: 14px;
+}
+
+.hamburger__line--2 {
+    top: 20px;
+}
+
+.hamburger__line--3 {
+    top: 26px;
+}
+
+.black-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .6s;
+    cursor: pointer;
+}
+/* 表示された時用のCSS */
+.nav-open .global-nav {
+    right: 0;
+}
+
+.nav-open .black-bg {
+    opacity: .8;
+    visibility: visible;
+}
+
+.nav-open .hamburger__line--1 {
+    transform: rotate(45deg);
+    top: 20px;
+}
+
+.nav-open .hamburger__line--2 {
+    width: 0;
+    left: 50%;
+}
+
+.nav-open .hamburger__line--3 {
+    transform: rotate(-45deg);
+    top: 20px;
+}
+
+.text-center{
+    margin:20%;
+}

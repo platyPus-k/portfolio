@@ -1,0 +1,28 @@
+﻿@font-face {
+    font-family: 'Monad';
+    src: url(font/MonadRegular.woff);
+}
+body{
+    background-image: none;
+}
+.back-middle {
+    background: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05));
+}
+.main-line {    
+    font-family: 'Monad';
+    font-size: 400%;
+}
+img {
+    width: 20%;
+    height: 20%;
+}
+
+.title-line {
+    border-left: 40px rgba(0, 0, 0, 0.7) solid;
+    padding-left:1%;
+}
+.p-line {
+    border-left: 2px black solid;
+    padding-left: 1%;
+}
+

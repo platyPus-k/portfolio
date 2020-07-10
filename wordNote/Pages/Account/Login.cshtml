@@ -1,0 +1,70 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="leamug">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/Login.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Main.css" />
+</head>
+<body>
+    <br/><br /><br /><br />
+    <!-- Page Content -->
+    <div class="container-Login">
+        <div class="row">
+            <div class="col-md-offset-5 col-md-4 text-center">
+                <div class="form-login">
+                    </br>
+                    <h4>Login</h4>
+                    </br>
+                    <form method="post">
+                        <input type="text" asp-for="Input.Id" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+                        </br></br>
+                        <input type="password" asp-for="Input.Password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+                        </br></br>
+                        <div class="wrapper">
+                            <p><input type="checkbox" asp-for="Input.RememberMe">RememberMe</p>
+                            <span class="group-btn">
+                                <button type="submit" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </br></br></br>
+    </div>
+    <style>
+
+        .container {
+            text-align: center;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+        }
+
+        .pb-3 {
+            text-align: center;
+            width: 200%;
+        }
+
+        .container-Login {
+            display: inline-block; 
+            text-align: center;
+            width: 100%;
+        }
+        .col-md-offset-5 {
+            margin: auto;
+        }
+    </style>
+</body>
+</html>
+

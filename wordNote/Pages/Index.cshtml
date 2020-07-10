@@ -1,0 +1,14 @@
+﻿@page
+@model wordNote.Pages.IndexModel
+@{
+    ViewData["UserName"] = Model.UserName;
+}
+
+    <div class="text-center">
+        <h1>wordNote</h1>
+        <p>大事にしたい言葉　同じ境遇の人に伝えたい言葉</p>
+        <div class="wrap">
+            <button class="button" onclick="location.href='./Words'">Write</button>
+            <button class="button" onclick="location.href='./Users/Create'">NewAccount</button>
+        </div>
+    </div>
